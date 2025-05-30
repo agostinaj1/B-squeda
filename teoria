@@ -1,0 +1,28 @@
+Búsqueda Binaria
+La búsqueda binaria es un algoritmo eficiente para encontrar un elemento en un arreglo ordenado. A diferencia de la búsqueda lineal (que revisa uno por uno), la binaria divide el arreglo por la mitad en cada paso, descartando la mitad en la que el elemento no puede estar.
+Requisitos:
+El arreglo debe estar ordenado (ascendente o descendente).
+Es más rápida que la búsqueda lineal, especialmente en arreglos grandes.
+¿Cómo funciona?
+Se comparan los extremos: izquierda (inicio) y derecha (fin).
+
+
+Se calcula el índice del medio:
+ medio = (inicio + fin) / 2
+
+
+Se compara el valor en esa posición con el valor buscado:
+
+
+Si son iguales → ¡Listo! Elemento encontrado.
+
+
+Si el buscado es menor → Buscar en la mitad izquierda.
+
+
+Si es mayor → Buscar en la mitad derecha.
+
+
+Se repite el proceso hasta encontrarlo o que no queden elementos.
+
+
