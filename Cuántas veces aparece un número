@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+// Buscar la primera aparición del número
+int buscarPrimera(int arr[], int tam, int clave) {
+    int inicio = 0, fin = tam - 1, resultado = -1;
+    while (inicio <= fin) {
+        int medio = (inicio + fin) / 2;
+        if (arr[medio] == clave) {
+            resultado = medio;
+            fin = medio - 1;  // buscar más a la izquierda
+        } else if (arr[medio] < clave) {
+            inicio = medio + 1;
+        } else {
+            fin = medio - 1;
+        }
+    }
+    return resultado;
+}
+
+// Buscar la última aparición del número
+int buscarUltima(int arr[], int tam, int clave) {
+    int inicio = 0, fin = tam - 1, resultado = -1;
+    while (inicio <= fin) {
+        int medio = (inicio + fin) / 2;
+        if (arr[medio] == clave) {
+            resultado = medio;
+            inicio = medio + 1;  // buscar más a la derecha
+        } else if (arr[medio] < clave) {
+            inicio = medio + 1;
+        } else {
+            fin = medio - 1;
+        }
+    }
+    return resultado;
+}
+
+int main() {
+    int arr[] = {1, 2, 4, 4, 4, 5, 6};
+    int tam = sizeof(arr) / sizeof(arr[0]);
+    int num, primera, ultima, count;
+
+    printf("Ingrese el número a buscar: ");
+    scanf("%d", &num);
+
+    primera = buscarPrimera(arr, tam, num);
+    if (primera == -1) {
+        printf("El número %d no está en el arreglo.\n", num);
+    } else {
+        ultima = buscarUltima(arr, tam, num);
+        count = ultima - primera + 1;
+        printf("El número %d aparece %d veces en el arreglo.\n", num, count);
+    }
+
+    return 0;
+}
