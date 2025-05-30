@@ -1,0 +1,54 @@
+#include <stdio.h>
+#include <string.h>
+
+// Función de búsqueda binaria para strings
+int busquedaBinaria(char arr[][20], int tam, char clave[]) {
+    int inicio = 0, fin = tam - 1;
+
+    while (inicio <= fin) {
+        int medio = (inicio + fin) / 2;
+        int cmp = strcmp(arr[medio], clave);
+
+        if (cmp == 0) {
+            return medio; // Encontrado
+        } else if (cmp < 0) {
+            inicio = medio + 1;
+        } else {
+            fin = medio - 1;
+        }
+    }
+
+    return -1; // No encontrado
+}
+
+int main() {
+    // Arreglo ordenado alfabéticamente de 10 palabras (máximo 19 caracteres cada una)
+    char palabras[10][20] = {
+        "arbol",
+        "barco",
+        "casa",
+        "dedo",
+        "elefante",
+        "faro",
+        "gato",
+        "helado",
+        "isla",
+        "juego"
+    };
+
+    char buscar[20];
+    int resultado;
+
+    printf("Ingrese la palabra a buscar: ");
+    scanf("%19s", buscar);
+
+    resultado = busquedaBinaria(palabras, 10, buscar);
+
+    if (resultado != -1) {
+        printf("La palabra '%s' existe en el arreglo en la posición %d.\n", buscar, resultado);
+    } else {
+        printf("La palabra '%s' NO existe en el arreglo.\n", buscar);
+    }
+
+    return 0;
+}
