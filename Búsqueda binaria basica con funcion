@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+// Función de búsqueda binaria
+int busquedaBinaria(int arr[], int tam, int clave) {
+    int inicio = 0;
+    int fin = tam - 1;
+
+    while (inicio <= fin) {
+        int medio = (inicio + fin) / 2;
+
+        if (arr[medio] == clave) {
+            return medio;  // Encontrado, devuelve el índice
+        } else if (arr[medio] < clave) {
+            inicio = medio + 1;
+        } else {
+            fin = medio - 1;
+        }
+    }
+
+    return -1;  // No encontrado
+}
+
+int main() {
+    int numeros[] = {2, 4, 6, 8, 10, 12};
+    int tam = sizeof(numeros) / sizeof(numeros[0]);
+    int clave, resultado;
+
+    printf("Ingrese el número a buscar: ");
+    scanf("%d", &clave);
+
+    resultado = busquedaBinaria(numeros, tam, clave);
+
+    if (resultado != -1) {
+        printf("El número %d fue encontrado en la posición %d.\n", clave, resultado);
+    } else {
+        printf("El número %d no se encuentra en el arreglo.\n", clave);
+    }
+
+    return 0;
+}
