@@ -1,0 +1,12 @@
+La búsqueda lineal consiste en comparar cada uno de los elementos del arreglo con el valor buscado, así que la velocidad de búsqueda dependerá en que parte del arreglo se encuentre lo que se busca, ya que el valor buscado puede estar al principio del arreglo como al final de este.
+Por lo tanto, en promedio, el programa tendrá que comparar el valor buscado con la mitad de los elementos del arreglo.
+El arreglo lineal funciona bien para arreglos pequeños o que no están ordenados.  Si el arreglo está ordenado, se puede utilizar la técnica de búsqueda binaria, la cual es mucho más eficiente con arreglos ordenados.
+EJEMPLO:
+
+buscar=80;
+arreglo[10];
+for(i=0;i<10;i++){
+  if (arreglo[i]==buscar){
+    printf("numero encontrado");
+  }
+}
