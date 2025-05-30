@@ -1,0 +1,5 @@
+La búsqueda binaria se debe aplicar en un arreglo ordenado, ya sea de mayor a menor o vice versa.
+Lo que hace es comparar el valor buscado por el elemento central del arreglo, si son iguales, entonces se da por finalizada la búsqueda, pero si no son iguales, entonces el elemento a buscar se compara con el elemento central y verifica si es mayor o menor que este.
+Al hacer esto, se  divide el arreglo en dos partes, uno de mayor valor al elemento buscado y otro de menor valor al elemento buscado. 
+Si el elemento buscado es menor al valor central, entonces se seguirá buscando en el arreglo de menor tamaño descartando a la otra parte, no tiene sentido buscar en la otra mitad si todos los números son mayores al número buscado. 
+Es así que se compara nuevamente el valor buscado con el valor central de esta mitad y así sucesivamente hasta encontrar o no encontrar el valor.
