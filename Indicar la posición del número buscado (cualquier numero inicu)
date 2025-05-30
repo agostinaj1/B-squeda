@@ -1,0 +1,65 @@
+#include <stdio.h>
+
+// Función para ordenar el arreglo (bubble sort)
+void ordenar(int arr[], int tam) {
+    for (int i = 0; i < tam - 1; i++) {
+        for (int j = 0; j < tam - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                // Intercambiar elementos
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+// Función de búsqueda binaria
+int busquedaBinaria(int arr[], int tam, int clave) {
+    int inicio = 0, fin = tam - 1;
+
+    while (inicio <= fin) {
+        int medio = (inicio + fin) / 2;
+
+        if (arr[medio] == clave) {
+            return medio;
+        } else if (arr[medio] < clave) {
+            inicio = medio + 1;
+        } else {
+            fin = medio - 1;
+        }
+    }
+
+    return -1;
+}
+
+int main() {
+    int numeros[20];
+    int clave, resultado;
+
+    // Ingreso de los 20 números en cualquier orden
+    printf("Ingrese 20 números en cualquier orden:\n");
+    for (int i = 0; i < 20; i++) {
+        printf("Número %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+    }
+
+    // Ordenar el arreglo antes de buscar
+    ordenar(numeros, 20);
+
+    // Pedir número a buscar
+    printf("\nIngrese el número a buscar: ");
+    scanf("%d", &clave);
+
+    // Buscar usando búsqueda binaria
+    resultado = busquedaBinaria(numeros, 20, clave);
+
+    // Mostrar resultado
+    if (resultado != -1) {
+        printf("El número %d se encuentra en la posición ordenada %d del arreglo.\n", clave, resultado);
+    } else {
+        printf("El número %d no se encuentra en el arreglo.\n", clave);
+    }
+
+    return 0;
+}
