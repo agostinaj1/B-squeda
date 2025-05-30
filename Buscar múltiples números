@@ -1,0 +1,57 @@
+#include <stdio.h>
+
+// Función de búsqueda binaria
+int busquedaBinaria(int arr[], int tam, int clave) {
+    int inicio = 0, fin = tam - 1;
+
+    while (inicio <= fin) {
+        int medio = (inicio + fin) / 2;
+
+        if (arr[medio] == clave) {
+            return 1; // Encontrado
+        } else if (arr[medio] < clave) {
+            inicio = medio + 1;
+        } else {
+            fin = medio - 1;
+        }
+    }
+
+    return 0; // No encontrado
+}
+
+int main() {
+    int numeros[10];
+    int buscar[3];
+
+    // Ingreso de los 10 números ordenados ascendentemente
+    printf("Ingrese 10 números en orden ascendente:\n");
+    for (int i = 0; i < 10; i++) {
+        printf("Número %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+
+        // Verificar orden ascendente
+        if (i > 0 && numeros[i] < numeros[i - 1]) {
+            printf("Error: debe ingresar números en orden ascendente.\n");
+            i--; // repetir el ingreso del número actual
+        }
+    }
+
+    // Ingreso de los 3 números a buscar
+    printf("\nIngrese 3 números a buscar:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("Número a buscar %d: ", i + 1);
+        scanf("%d", &buscar[i]);
+    }
+
+    // Buscar cada número
+    printf("\nResultados de búsqueda:\n");
+    for (int i = 0; i < 3; i++) {
+        if (busquedaBinaria(numeros, 10, buscar[i])) {
+            printf("El número %d SÍ se encuentra en el arreglo.\n", buscar[i]);
+        } else {
+            printf("El número %d NO se encuentra en el arreglo.\n", buscar[i]);
+        }
+    }
+
+    return 0;
+}
